@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\GroupParticipant;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -13,6 +14,27 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
+        $this->call([
+            
+            RoleSeeder::class,
+            UserSeeder::class,
+            PostSeeder::class,
+            PostCommentSeeder::class,
+            RoomSeeder::class,
+            ConsultantRoomSeeder::class,
+            SessionSeeder::class,
+            SessionMessageSeeder::class,
+            SessionRatingSeeder::class,
+            SubscriptionPlanSeeder::class,
+            OrderSeeder::class,
+            PaymentSeeder::class,
+            SubscriptionSeeder::class,
+            GroupSeeder::class,
+            GroupParticipantSeeder::class,
+            ArticleSeeder::class,
+            ArticleCommentSeeder::class                                                                                                        
+
+
+        ]);
     }
 }

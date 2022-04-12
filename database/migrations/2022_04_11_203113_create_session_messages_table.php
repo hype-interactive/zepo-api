@@ -17,7 +17,7 @@ class CreateSessionMessagesTable extends Migration
             $table->id();
             $table->text("content");
             $table->enum("type",["text","audio","image","other"]);
-            $table->boolean("visibility")->default(1);
+            $table->boolean("visibility")->default(true);
             $table->unsignedBigInteger("user_id");
             $table->unsignedBigInteger("session_id");
             $table->timestamps();

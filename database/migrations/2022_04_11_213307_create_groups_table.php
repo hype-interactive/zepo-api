@@ -17,7 +17,7 @@ class CreateGroupsTable extends Migration
             
             $table->id();
             $table->string("name");
-            $table->boolean("status")->default(1);
+            $table->boolean("status")->default(true);
             $table->text("description");
             $table->unsignedBigInteger("admin");
             $table->timestamps();

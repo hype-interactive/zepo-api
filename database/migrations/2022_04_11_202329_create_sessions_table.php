@@ -16,7 +16,7 @@ class CreateSessionsTable extends Migration
         Schema::create('sessions', function (Blueprint $table) {
             $table->id();
             $table->string("title");
-            $table->boolean("status")->default(1);
+            $table->boolean("status")->default(true);
             $table->unsignedBigInteger("client");
             $table->unsignedBigInteger("consultant");
             $table->unsignedBigInteger("room_id");

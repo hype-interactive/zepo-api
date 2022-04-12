@@ -16,7 +16,7 @@ class CreateArticleCommentsTable extends Migration
         Schema::create('article_comments', function (Blueprint $table) {
             $table->id();
             $table->text("content");
-            $table->boolean("visibility")->default(1);
+            $table->boolean("visibility")->default(true);
             $table->unsignedBigInteger("user_id");
             $table->unsignedBigInteger("article_id");
             $table->timestamps();

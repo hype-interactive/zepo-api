@@ -16,7 +16,7 @@ class CreatePostCommentsTable extends Migration
         Schema::create('post_comments', function (Blueprint $table) {
             $table->id();
             $table->text("content");
-            $table->boolean("visibility")->default(1);
+            $table->boolean("visibility")->default(true);
             $table->unsignedBigInteger("user_id");
             $table->unsignedBigInteger("post_id");
             $table->timestamps();

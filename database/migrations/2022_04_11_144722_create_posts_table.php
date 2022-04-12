@@ -17,8 +17,8 @@ class CreatePostsTable extends Migration
             
             $table->id();
             $table->text("content");
+            $table->boolean("visibility")->default(true);
             $table->unsignedBigInteger("user_id");
-            $table->boolean("visibility")->default(1);
             $table->timestamps();
 
             $table->index("user_id","fk_posts_users");
