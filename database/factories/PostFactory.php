@@ -17,10 +17,8 @@ class PostFactory extends Factory
         return [
             "content" => $this->faker->realText(),
             "visibility" => $this->faker->boolean(),
-            "user_id" => User::getRandomId(),
+            "userId" => User::getRandomId(),
 
         ];
     }
-
-    
 }

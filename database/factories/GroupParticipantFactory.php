@@ -16,8 +16,8 @@ class GroupParticipantFactory extends Factory
     public function definition()
     {
         return [
-            "group_id" => Group::inRandomOrder()->first(),
-            "user_id" => User::getRandomId()
+            "groupId" => Group::inRandomOrder()->first(),
+            "userId" => User::getRandomId()
         ];
     }
 }

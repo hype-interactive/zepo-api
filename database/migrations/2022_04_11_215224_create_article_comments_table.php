@@ -17,26 +17,23 @@ class CreateArticleCommentsTable extends Migration
             $table->id();
             $table->text("content");
             $table->boolean("visibility")->default(true);
-            $table->unsignedBigInteger("user_id");
-            $table->unsignedBigInteger("article_id");
+            $table->unsignedBigInteger("userId");
+            $table->unsignedBigInteger("articleId");
             $table->timestamps();
 
-            $table->index("user_id","fk_article_comments_users");
-            $table->index("article_id","fk_article_comments_articles");
+            $table->index("userId", "fk_article_comments_users");
+            $table->index("articleId", "fk_article_comments_articles");
 
-            $table->foreign("user_id","fk_article_comments_users")
+            $table->foreign("userId", "fk_article_comments_users")
                 ->references("id")->on("users")
                 ->onDelete("no action")
                 ->onUpdate("no action");
 
-            $table->foreign("article_id","fk_article_comments_articles")
+            $table->foreign("articleId", "fk_article_comments_articles")
                 ->references("id")->on("articles")
                 ->onDelete("no action")
                 ->onUpdate("no action");
-
         });
-
-
     }
 
     /**

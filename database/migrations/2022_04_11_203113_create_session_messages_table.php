@@ -16,21 +16,21 @@ class CreateSessionMessagesTable extends Migration
         Schema::create('session_messages', function (Blueprint $table) {
             $table->id();
             $table->text("content");
-            $table->enum("type",["text","audio","image","other"]);
+            $table->enum("type", ["text", "audio", "image", "other"]);
             $table->boolean("visibility")->default(true);
-            $table->unsignedBigInteger("user_id");
-            $table->unsignedBigInteger("session_id");
+            $table->unsignedBigInteger("userId");
+            $table->unsignedBigInteger("sessionId");
             $table->timestamps();
 
-            $table->index("user_id","fk_session_messages_users");
-            $table->index("session_id","fk_session_messages_sessions");
+            $table->index("userId", "fk_session_messages_users");
+            $table->index("sessionId", "fk_session_messages_sessions");
 
-            $table->foreign("user_id","fk_session_messages_users")
+            $table->foreign("userId", "fk_session_messages_users")
                 ->references("id")->on("users")
                 ->onDelete("no action")
                 ->onUpdate("no action");
 
-            $table->foreign("session_id","fk_session_messages_sessions")
+            $table->foreign("sessionId", "fk_session_messages_sessions")
                 ->references("id")->on("sessions")
                 ->onDelete("no action")
                 ->onUpdate("no action");

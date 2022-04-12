@@ -17,7 +17,7 @@ class ArticleFactory extends Factory
         return [
             "content" => $this->faker->sentence(15),
             "image" => $this->faker->imageUrl(),
-            "group_id" => Group::inRandomOrder()->first(),
+            "groupId" => Group::inRandomOrder()->first(),
         ];
     }
 }

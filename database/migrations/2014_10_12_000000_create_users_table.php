@@ -19,19 +19,18 @@ class CreateUsersTable extends Migration
             $table->string('lname');
             $table->string("phone");
             $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
+            $table->timestamp('emailVerifiedAt')->nullable();
             $table->string('password');
             $table->rememberToken();
-            $table->unsignedBigInteger("role_id");
+            $table->unsignedBigInteger("roleId");
             $table->timestamps();
 
-            $table->index("role_id","fk_users_roles");
+            $table->index("roleId", "fk_users_roles");
 
-            $table->foreign("role_id","fk_users_roles")
+            $table->foreign("roleId", "fk_users_roles")
                 ->references("id")->on("roles")
                 ->onDelete("no action")
                 ->onUpdate("no action");
-
         });
     }
 

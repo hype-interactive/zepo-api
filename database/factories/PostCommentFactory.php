@@ -18,8 +18,8 @@ class PostCommentFactory extends Factory
         return [
             "content" => $this->faker->realText(),
             "visibility" => $this->faker->boolean(),
-            "user_id" => User::getRandomId(),
-            "post_id" => Post::getRandomId(),
+            "userId" => User::getRandomId(),
+            "postId" => Post::getRandomId(),
         ];
     }
 }

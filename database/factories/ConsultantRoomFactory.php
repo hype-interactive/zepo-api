@@ -17,8 +17,8 @@ class ConsultantRoomFactory extends Factory
     public function definition()
     {
         return [
-            "user_id" => User::getRandomId(),
-            "room_id" => Room::getRandomId(),
+            "userId" => User::getRandomId(),
+            "roomId" => Room::getRandomId(),
         ];
     }
 }

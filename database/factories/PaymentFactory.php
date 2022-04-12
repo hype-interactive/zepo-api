@@ -4,6 +4,7 @@ namespace Database\Factories;
 
 use App\Models\Order;
 use Illuminate\Database\Eloquent\Factories\Factory;
+
 class PaymentFactory extends Factory
 {
     /**
@@ -17,7 +18,7 @@ class PaymentFactory extends Factory
             "channel" => "tigopesa",
             "type" => "mobile",
             "callback_string" => $this->faker->sentence(),
-            "order_id" => Order::getRandomId(),
+            "orderId" => Order::getRandomId(),
         ];
     }
 }

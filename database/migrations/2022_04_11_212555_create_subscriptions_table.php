@@ -16,26 +16,26 @@ class CreateSubscriptionsTable extends Migration
         Schema::create('subscriptions', function (Blueprint $table) {
             $table->id();
             $table->string("expiry_time");
-            $table->unsignedBigInteger("user_id");
-            $table->unsignedBigInteger("subscription_plan_id");
-            $table->unsignedBigInteger("payment_id");
+            $table->unsignedBigInteger("userId");
+            $table->unsignedBigInteger("subscriptionPlanId");
+            $table->unsignedBigInteger("ppaymentId");
             $table->timestamps();
 
-            $table->index("user_id","fk_subscriptions_users");
-            $table->index("subscription_plan_id","fk_subscriptions_subscription_plans");
-            $table->index("payment_id","fk_subscriptions_payments");
+            $table->index("userId", "fk_subscriptions_users");
+            $table->index("subscriptionPlanId", "fk_subscriptions_subscription_plans");
+            $table->index("ppaymentId", "fk_subscriptions_payments");
 
-            $table->foreign("user_id","fk_subscriptions_users")
+            $table->foreign("userId", "fk_subscriptions_users")
                 ->references("id")->on("users")
                 ->onDelete("no action")
                 ->onUpdate("no action");
 
-            $table->foreign("subscription_plan_id","fk_subscriptions_subscription_plans")
+            $table->foreign("subscriptionPlanId", "fk_subscriptions_subscription_plans")
                 ->references("id")->on("subscription_plans")
                 ->onDelete("no action")
                 ->onUpdate("no action");
 
-            $table->foreign("payment_id","fk_subscriptions_payments")
+            $table->foreign("ppaymentId", "fk_subscriptions_payments")
                 ->references("id")->on("payments")
                 ->onDelete("no action")
                 ->onUpdate("no action");

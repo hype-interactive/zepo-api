@@ -15,9 +15,9 @@ class OrderFactory extends Factory
     public function definition()
     {
         return [
-            "amount" => mt_rand(1000,100000),
+            "amount" => mt_rand(1000, 100000),
             "status" => "completed",
-            "user_id" => User::getRandomId(),
+            "userId" => User::getRandomId(),
 
         ];
     }

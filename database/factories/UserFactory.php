@@ -20,12 +20,12 @@ class UserFactory extends Factory
         return [
             "fname" => $this->faker->firstName(),
             "lname" => $this->faker->lastName(),
-            "phone"=>  $this->faker->phoneNumber(),
+            "phone" =>  $this->faker->phoneNumber(),
             "email" => $this->faker->unique()->safeEmail(),
-            'email_verified_at' => now(),
+            'emailVerifiedAt' => now(),
             "password" => Hash::make('password'),
-            'remember_token' => Str::random(10),           
-            "role_id" => $this->getRandomRoleID(),
+            'remember_token' => Str::random(10),
+            "roleId" => $this->getRandomRoleID(),
         ];
     }
 
@@ -38,15 +38,15 @@ class UserFactory extends Factory
     {
         return $this->state(function (array $attributes) {
             return [
-                'email_verified_at' => null,
+                'emailVerifiedAt' => null,
             ];
         });
     }
 
-    private function getRandomRoleID() {
-        
+    private function getRandomRoleID()
+    {
+
         $role = Role::inRandomOrder()->first();
         return $role->id;
     }
-
 }

@@ -18,8 +18,8 @@ class ArticleCommentFactory extends Factory
         return [
             "content" => $this->faker->realText(100),
             "visibility" => true,
-            "user_id" => User::getRandomId(),
-            "article_id" => Article::inRandomOrder()->first()
+            "userId" => User::getRandomId(),
+            "articleId" => Article::inRandomOrder()->first()
         ];
     }
 }

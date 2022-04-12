@@ -15,8 +15,8 @@ class SessionRatingFactory extends Factory
     public function definition()
     {
         return [
-            "value" => $this->faker->numberBetween(0,10),
-            "session_id" => Session::getRandomId(),
+            "value" => $this->faker->numberBetween(0, 10),
+            "sessionId" => Session::getRandomId(),
 
         ];
     }

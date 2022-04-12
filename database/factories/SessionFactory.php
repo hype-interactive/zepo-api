@@ -19,8 +19,8 @@ class SessionFactory extends Factory
             "title" => $this->faker->sentence(4),
             "status" => $this->faker->boolean(),
             "client" => User::getRandomId(),
-            "consultant" => User:: getRandomId(),
-            "room_id" => Room::getRandomId(),
+            "consultant" => User::getRandomId(),
+            "roomId" => Room::getRandomId(),
         ];
     }
 }

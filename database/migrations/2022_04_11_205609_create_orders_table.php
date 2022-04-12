@@ -16,13 +16,13 @@ class CreateOrdersTable extends Migration
         Schema::create('orders', function (Blueprint $table) {
             $table->uuid('id')->primary();
             $table->string("amount");
-            $table->enum("status",["pending","completed","canceled"])->default("pending");
-            $table->unsignedBigInteger("user_id");
+            $table->enum("status", ["pending", "completed", "canceled"])->default("pending");
+            $table->unsignedBigInteger("userId");
             $table->timestamps();
 
-            $table->index("user_id","fk_orders_users");
+            $table->index("userId", "fk_orders_users");
 
-            $table->foreign("user_id","fk_orders_users")
+            $table->foreign("userId", "fk_orders_users")
                 ->references("id")->on("users")
                 ->onDelete("no action")
                 ->onUpdate("no action");

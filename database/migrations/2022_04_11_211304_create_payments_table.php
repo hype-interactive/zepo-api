@@ -17,18 +17,17 @@ class CreatePaymentsTable extends Migration
 
             $table->id();
             $table->string("channel");
-            $table->enum("type",["mobile","bank","cash"]);
+            $table->enum("type", ["mobile", "bank", "cash"]);
             $table->text("callback_string");
-            $table->uuid("order_id")->nullable(false);
+            $table->uuid("orderId")->nullable(false);
             $table->timestamps();
 
-            $table->index("order_id","fk_payments_orders");
+            $table->index("orderId", "fk_payments_orders");
 
-            $table->foreign("order_id","fk_payments_orders")
+            $table->foreign("orderId", "fk_payments_orders")
                 ->references("id")->on("orders")
                 ->onDelete("no action")
                 ->onUpdate("no action");
-
         });
     }
 

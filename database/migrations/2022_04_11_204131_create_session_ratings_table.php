@@ -16,16 +16,15 @@ class CreateSessionRatingsTable extends Migration
         Schema::create('session_ratings', function (Blueprint $table) {
             $table->id();
             $table->string("value");
-            $table->unsignedBigInteger("session_id");
+            $table->unsignedBigInteger("sessionId");
             $table->timestamps();
 
-            $table->index("session_id","fk_session_ratings_sessions");
+            $table->index("sessionId", "fk_session_ratings_sessions");
 
-            $table->foreign("session_id","fk_session_ratings_sessions")
+            $table->foreign("sessionId", "fk_session_ratings_sessions")
                 ->references("id")->on("sessions")
                 ->onDelete("no action")
                 ->onUpdate("no action");
-
         });
     }
 

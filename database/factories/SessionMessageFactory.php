@@ -16,12 +16,12 @@ class SessionMessageFactory extends Factory
     public function definition()
     {
         return [
-            
+
             "content" => $this->faker->realText(100),
             "type" => "text",
             "visibility" => true,
-            "user_id" => User::getRandomId(),
-            "session_id" => Session::getRandomId(),
+            "userId" => User::getRandomId(),
+            "sessionId" => Session::getRandomId(),
         ];
     }
 }
