@@ -13,13 +13,13 @@ class CreateSubscriptionPlansTable extends Migration
      */
     public function up()
     {
-        Schema::create('subscription_plans', function (Blueprint $table) {
+        Schema::create('subscriptionPlans', function (Blueprint $table) {
             $table->id();
             $table->string("name");
             $table->text("description");
             $table->string("amount");
             $table->integer("slots");
-            $table->enum("mode",["time","session"]);
+            $table->enum("mode", ["time", "session"]);
             $table->string("duration");
             $table->timestamps();
         });
@@ -32,6 +32,6 @@ class CreateSubscriptionPlansTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('subscription_plans');
+        Schema::dropIfExists('subscriptionPlans');
     }
 }

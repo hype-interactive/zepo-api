@@ -13,21 +13,21 @@ class CreateGroupParticipantsTable extends Migration
      */
     public function up()
     {
-        Schema::create('group_participants', function (Blueprint $table) {
+        Schema::create('groupParticipants', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger("groupId");
             $table->unsignedBigInteger("userId");
             $table->timestamps();
 
-            $table->index("groupId", "fk_group_participants_groups");
-            $table->index("userId", "fk_group_participants_users");
+            $table->index("groupId", "fk_groupParticipants_groups");
+            $table->index("userId", "fk_groupParticipants_users");
 
-            $table->foreign("groupId", "fk_group_participants_groups")
+            $table->foreign("groupId", "fk_groupParticipants_groups")
                 ->references("id")->on("groups")
                 ->onDelete("no action")
                 ->onUpdate("no action");
 
-            $table->foreign("userId", "fk_group_participants_users")
+            $table->foreign("userId", "fk_groupParticipants_users")
                 ->references("id")->on("users")
                 ->onDelete("no action")
                 ->onUpdate("no action");
@@ -41,6 +41,6 @@ class CreateGroupParticipantsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('group_participants');
+        Schema::dropIfExists('groupParticipants');
     }
 }

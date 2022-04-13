@@ -22,7 +22,7 @@ class CreateSubscriptionsTable extends Migration
             $table->timestamps();
 
             $table->index("userId", "fk_subscriptions_users");
-            $table->index("subscriptionPlanId", "fk_subscriptions_subscription_plans");
+            $table->index("subscriptionPlanId", "fk_subscriptions_subscriptionPlans");
             $table->index("ppaymentId", "fk_subscriptions_payments");
 
             $table->foreign("userId", "fk_subscriptions_users")
@@ -30,8 +30,8 @@ class CreateSubscriptionsTable extends Migration
                 ->onDelete("no action")
                 ->onUpdate("no action");
 
-            $table->foreign("subscriptionPlanId", "fk_subscriptions_subscription_plans")
-                ->references("id")->on("subscription_plans")
+            $table->foreign("subscriptionPlanId", "fk_subscriptions_subscriptionPlans")
+                ->references("id")->on("subscriptionPlans")
                 ->onDelete("no action")
                 ->onUpdate("no action");
 

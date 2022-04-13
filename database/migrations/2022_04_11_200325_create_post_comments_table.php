@@ -13,7 +13,7 @@ class CreatePostCommentsTable extends Migration
      */
     public function up()
     {
-        Schema::create('post_comments', function (Blueprint $table) {
+        Schema::create('postComments', function (Blueprint $table) {
             $table->id();
             $table->text("content");
             $table->boolean("visibility")->default(true);
@@ -21,15 +21,15 @@ class CreatePostCommentsTable extends Migration
             $table->unsignedBigInteger("postId");
             $table->timestamps();
 
-            $table->index("userId", "fk_post_comments_users");
-            $table->index("postId", "fk_post_comments_posts");
+            $table->index("userId", "fk_postComments_users");
+            $table->index("postId", "fk_postComments_posts");
 
-            $table->foreign("userId", "fk_post_comments_users")
+            $table->foreign("userId", "fk_postComments_users")
                 ->references("id")->on("users")
                 ->onDelete("no action")
                 ->onUpdate("no action");
 
-            $table->foreign("postId", "fk_post_comments_posts")
+            $table->foreign("postId", "fk_postComments_posts")
                 ->references("id")->on("posts")
                 ->onDelete("no action")
                 ->onUpdate("no action");
@@ -43,6 +43,6 @@ class CreatePostCommentsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('post_comments');
+        Schema::dropIfExists('postComments');
     }
 }

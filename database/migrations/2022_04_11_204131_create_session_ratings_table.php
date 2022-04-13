@@ -13,15 +13,15 @@ class CreateSessionRatingsTable extends Migration
      */
     public function up()
     {
-        Schema::create('session_ratings', function (Blueprint $table) {
+        Schema::create('sessionRatings', function (Blueprint $table) {
             $table->id();
             $table->string("value");
             $table->unsignedBigInteger("sessionId");
             $table->timestamps();
 
-            $table->index("sessionId", "fk_session_ratings_sessions");
+            $table->index("sessionId", "fk_sessionRatings_sessions");
 
-            $table->foreign("sessionId", "fk_session_ratings_sessions")
+            $table->foreign("sessionId", "fk_sessionRatings_sessions")
                 ->references("id")->on("sessions")
                 ->onDelete("no action")
                 ->onUpdate("no action");
@@ -35,6 +35,6 @@ class CreateSessionRatingsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('session_ratings');
+        Schema::dropIfExists('sessionRatings');
     }
 }

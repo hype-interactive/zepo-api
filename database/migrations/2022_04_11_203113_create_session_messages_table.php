@@ -13,7 +13,7 @@ class CreateSessionMessagesTable extends Migration
      */
     public function up()
     {
-        Schema::create('session_messages', function (Blueprint $table) {
+        Schema::create('sessionMessages', function (Blueprint $table) {
             $table->id();
             $table->text("content");
             $table->enum("type", ["text", "audio", "image", "other"]);
@@ -22,15 +22,15 @@ class CreateSessionMessagesTable extends Migration
             $table->unsignedBigInteger("sessionId");
             $table->timestamps();
 
-            $table->index("userId", "fk_session_messages_users");
-            $table->index("sessionId", "fk_session_messages_sessions");
+            $table->index("userId", "fk_sessionMessages_users");
+            $table->index("sessionId", "fk_sessionMessages_sessions");
 
-            $table->foreign("userId", "fk_session_messages_users")
+            $table->foreign("userId", "fk_sessionMessages_users")
                 ->references("id")->on("users")
                 ->onDelete("no action")
                 ->onUpdate("no action");
 
-            $table->foreign("sessionId", "fk_session_messages_sessions")
+            $table->foreign("sessionId", "fk_sessionMessages_sessions")
                 ->references("id")->on("sessions")
                 ->onDelete("no action")
                 ->onUpdate("no action");
@@ -44,6 +44,6 @@ class CreateSessionMessagesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('session_messages');
+        Schema::dropIfExists('sessionMessages');
     }
 }

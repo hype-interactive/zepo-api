@@ -13,22 +13,22 @@ class CreateConsultantRoomsTable extends Migration
      */
     public function up()
     {
-        Schema::create('consultant_rooms', function (Blueprint $table) {
+        Schema::create('consultantRooms', function (Blueprint $table) {
 
             $table->id();
             $table->unsignedBigInteger("userId");
             $table->unsignedBigInteger("roomId");
             $table->timestamps();
 
-            $table->index("userId", "fk_consultant_rooms_users");
-            $table->index("roomId", "fk_consultant_rooms_rooms");
+            $table->index("userId", "fk_consultantRooms_users");
+            $table->index("roomId", "fk_consultantRooms_rooms");
 
-            $table->foreign("userId", "fk_consultant_rooms_users")
+            $table->foreign("userId", "fk_consultantRooms_users")
                 ->references("id")->on("users")
                 ->onDelete("no action")
                 ->onUpdate("no action");
 
-            $table->foreign("roomId", "fk_consultant_rooms_rooms")
+            $table->foreign("roomId", "fk_consultantRooms_rooms")
                 ->references("id")->on("rooms")
                 ->onDelete("no action")
                 ->onUpdate("no action");
@@ -42,6 +42,6 @@ class CreateConsultantRoomsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('consultant_rooms');
+        Schema::dropIfExists('consultantRooms');
     }
 }
