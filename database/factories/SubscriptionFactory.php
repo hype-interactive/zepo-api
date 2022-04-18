@@ -20,7 +20,7 @@ class SubscriptionFactory extends Factory
             "expiry_time" => $this->faker->dateTime(),
             "userId" => User::getRandomId(),
             "subscriptionPlanId" => SubscriptionPlan::inRandomOrder()->first(),
-            "ppaymentId" => Payment::inRandomOrder()->first(),
+            "paymentId" => Payment::inRandomOrder()->first(),
         ];
     }
 }

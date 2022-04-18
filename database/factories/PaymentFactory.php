@@ -17,7 +17,7 @@ class PaymentFactory extends Factory
         return [
             "channel" => "tigopesa",
             "type" => "mobile",
-            "callback_string" => $this->faker->sentence(),
+            "callbackString" => $this->faker->sentence(),
             "orderId" => Order::getRandomId(),
         ];
     }

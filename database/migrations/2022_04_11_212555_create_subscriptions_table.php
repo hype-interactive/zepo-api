@@ -18,12 +18,12 @@ class CreateSubscriptionsTable extends Migration
             $table->string("expiry_time");
             $table->unsignedBigInteger("userId");
             $table->unsignedBigInteger("subscriptionPlanId");
-            $table->unsignedBigInteger("ppaymentId");
+            $table->unsignedBigInteger("paymentId");
             $table->timestamps();
 
             $table->index("userId", "fk_subscriptions_users");
             $table->index("subscriptionPlanId", "fk_subscriptions_subscriptionPlans");
-            $table->index("ppaymentId", "fk_subscriptions_payments");
+            $table->index("paymentId", "fk_subscriptions_payments");
 
             $table->foreign("userId", "fk_subscriptions_users")
                 ->references("id")->on("users")
@@ -35,7 +35,7 @@ class CreateSubscriptionsTable extends Migration
                 ->onDelete("no action")
                 ->onUpdate("no action");
 
-            $table->foreign("ppaymentId", "fk_subscriptions_payments")
+            $table->foreign("paymentId", "fk_subscriptions_payments")
                 ->references("id")->on("payments")
                 ->onDelete("no action")
                 ->onUpdate("no action");

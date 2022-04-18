@@ -7,8 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Role extends Model
 {
-    use HasFactory;
     const CREATED_AT = 'createdAt';
     const UPDATED_AT = 'updatedAt';
-
+    use HasFactory;
 }
