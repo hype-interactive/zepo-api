@@ -18,7 +18,7 @@ class GroupFactory extends Factory
             "name" => $this->faker->word(),
             "status" => $this->faker->boolean(),
             "description" => $this->faker->sentence(),
-            "admin" => User::getRandomId(),
+            "adminId" => User::getRandomId(),
         ];
     }
 }

@@ -14,17 +14,17 @@ class CreateGroupsTable extends Migration
     public function up()
     {
         Schema::create('groups', function (Blueprint $table) {
-            
+
             $table->id();
             $table->string("name");
             $table->boolean("status")->default(true);
             $table->text("description");
-            $table->unsignedBigInteger("admin");
+            $table->unsignedBigInteger("adminId");
             $table->timestamps();
 
-            $table->index("admin","fk_groups_users");
+            $table->index("adminId", "fk_groups_users");
 
-            $table->foreign("admin","fk_groups_users")
+            $table->foreign("adminId", "fk_groups_users")
                 ->references("id")->on("users")
                 ->onDelete("no action")
                 ->onUpdate("no action");
