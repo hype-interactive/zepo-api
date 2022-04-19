@@ -28,6 +28,7 @@ class CreateOrdersTable extends Migration
                 ->references("id")->on("users")
                 ->onDelete("no action")
                 ->onUpdate("no action");
+                
             $table->foreign("subscriptionPlanId", "fk_orders_subscription_plans")
                 ->references("id")->on("subscriptionPlans")
                 ->onDelete("no action")

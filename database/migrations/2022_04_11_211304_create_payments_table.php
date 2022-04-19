@@ -18,7 +18,7 @@ class CreatePaymentsTable extends Migration
             $table->id();
             $table->string("channel");
             $table->enum("type", ["mobile", "bank", "cash"]);
-            $table->text("callbackString");
+            $table->text("callbackString")->nullable();
             $table->uuid("orderId")->nullable(false);
             $table->timestamps();
 
