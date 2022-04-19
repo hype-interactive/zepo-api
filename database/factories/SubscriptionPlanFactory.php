@@ -15,25 +15,25 @@ class SubscriptionPlanFactory extends Factory
     {
         return [
             "name" => $this->getRandomTitle(),
-            "description" => $this->faker->sentences(4,true),
+            "description" => $this->faker->sentences(4, true),
             "amount" => $this->getRandomAmount(),
-            "slots" => mt_rand(1,9),
+            "slots" => mt_rand(1, 9),
             "mode" => "session",
-            "duration" => mt_rand(1,6)."weeks",
+            "days" => mt_rand(1, 30),
         ];
     }
 
     public function getRandomTitle()
     {
-        $titles = ["Premium","Gold","Diamond","Bronze","Free"];
+        $titles = ["Premium", "Gold", "Diamond", "Bronze", "Free"];
 
-        return $titles[mt_rand(0,4)];
+        return $titles[mt_rand(0, 4)];
     }
 
     public function getRandomAmount()
     {
-        $titles = ["1000","2000","10000","50000","100000"];
+        $titles = ["1000", "2000", "10000", "50000", "100000"];
 
-        return $titles[mt_rand(0,4)];
+        return $titles[mt_rand(0, 4)];
     }
 }

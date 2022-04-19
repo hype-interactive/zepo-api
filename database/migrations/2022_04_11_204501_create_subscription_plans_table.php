@@ -20,7 +20,7 @@ class CreateSubscriptionPlansTable extends Migration
             $table->string("amount");
             $table->integer("slots");
             $table->enum("mode", ["time", "session"]);
-            $table->string("duration");
+            $table->unsignedBigInteger("days");
             $table->timestamps();
         });
     }
