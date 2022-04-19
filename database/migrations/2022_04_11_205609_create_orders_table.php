@@ -18,12 +18,18 @@ class CreateOrdersTable extends Migration
             $table->string("amount");
             $table->enum("status", ["pending", "completed", "canceled"])->default("pending");
             $table->unsignedBigInteger("userId");
+            $table->unsignedBigInteger("subscriptionPlanId");
             $table->timestamps();
 
             $table->index("userId", "fk_orders_users");
+            $table->index("subscriptionPlanId", "fk_orders_subscription_plans");
 
             $table->foreign("userId", "fk_orders_users")
                 ->references("id")->on("users")
+                ->onDelete("no action")
+                ->onUpdate("no action");
+            $table->foreign("subscriptionPlanId", "fk_orders_subscription_plans")
+                ->references("id")->on("subscriptionPlans")
                 ->onDelete("no action")
                 ->onUpdate("no action");
         });

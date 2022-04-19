@@ -4,6 +4,7 @@ namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 use App\Models\User;
+use App\Models\Order;
 
 class OrderFactory extends Factory
 {
@@ -18,6 +19,7 @@ class OrderFactory extends Factory
             "amount" => mt_rand(1000, 100000),
             "status" => "completed",
             "userId" => User::getRandomId(),
+            "subscriptionPlanId" => Order::getRandomId() ? Order::getRandomId() : 1,
 
         ];
     }
